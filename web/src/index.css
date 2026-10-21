@@ -1,0 +1,212 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@fontsource-variable/inter';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens from docs/DESIGN.md (Notion-inspired system), expressed as
+ * shadcn semantic variables plus the brand palette. A Brazilian layer
+ * (verde / amarelo / azul) is added on top for accents and decoration.
+ */
+:root {
+  --radius: 0.75rem; /* 12px = cards */
+
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #5645d4;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f5f4;
+  --secondary-foreground: #37352f;
+  --muted: #f6f5f4;
+  --muted-foreground: #5d5b54;
+  --accent: #e6e0f5;
+  --accent-foreground: #391c57;
+  --destructive: #e03131;
+  --border: #e5e3df;
+  --input: #c8c4be;
+  --ring: #5645d4;
+
+  --chart-1: #5645d4;
+  --chart-2: #1aae39;
+  --chart-3: #dd5b00;
+  --chart-4: #0075de;
+  --chart-5: #ff64c8;
+
+  /* Brand palette */
+  --navy: #0a1530;
+  --navy-deep: #070f24;
+  --navy-mid: #1a2a52;
+  --link: #0075de;
+  --primary-pressed: #4534b3;
+  --ink-deep: #000000;
+  --charcoal: #37352f;
+  --slate: #5d5b54;
+  --steel: #787671;
+  --stone: #a4a097;
+  --hairline: #e5e3df;
+  --hairline-soft: #ede9e4;
+  --surface: #f6f5f4;
+  --surface-soft: #fafaf9;
+
+  --tint-peach: #ffe8d4;
+  --tint-rose: #fde0ec;
+  --tint-mint: #d9f3e1;
+  --tint-lavender: #e6e0f5;
+  --tint-sky: #dcecfa;
+  --tint-yellow: #fef7d6;
+  --tint-yellow-bold: #f9e79f;
+  --tint-cream: #f8f5e8;
+
+  --success: #1aae39;
+  --warning: #dd5b00;
+  --danger: #e03131;
+
+  /* Brasil */
+  --br-green: #009c3b;
+  --br-yellow: #ffdf00;
+  --br-blue: #002776;
+
+  --shadow-card: 0 4px 12px 0 rgb(15 15 15 / 0.08);
+  --shadow-mockup: 0 24px 48px -8px rgb(15 15 15 / 0.2);
+  --shadow-modal: 0 16px 48px -8px rgb(15 15 15 / 0.16);
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', Inter, -apple-system, system-ui, 'Segoe UI',
+    Helvetica, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-mid: var(--navy-mid);
+  --color-link: var(--link);
+  --color-primary-pressed: var(--primary-pressed);
+  --color-charcoal: var(--charcoal);
+  --color-slate: var(--slate);
+  --color-steel: var(--steel);
+  --color-stone: var(--stone);
+  --color-hairline: var(--hairline);
+  --color-hairline-soft: var(--hairline-soft);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-tint-peach: var(--tint-peach);
+  --color-tint-rose: var(--tint-rose);
+  --color-tint-mint: var(--tint-mint);
+  --color-tint-lavender: var(--tint-lavender);
+  --color-tint-sky: var(--tint-sky);
+  --color-tint-yellow: var(--tint-yellow);
+  --color-tint-yellow-bold: var(--tint-yellow-bold);
+  --color-tint-cream: var(--tint-cream);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-br-green: var(--br-green);
+  --color-br-yellow: var(--br-yellow);
+  --color-br-blue: var(--br-blue);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-mockup: var(--shadow-mockup);
+  --shadow-modal: var(--shadow-modal);
+}
+
+@theme {
+  --color-ink-deep: #000000;
+  --color-brand-brown: #523410;
+  --color-brand-orange: #dd5b00;
+  --color-brand-orange-deep: #793400;
+  --color-brand-yellow: #f5d75e;
+  --color-brand-pink: #ff64c8;
+  --color-brand-pink-deep: #a02e6d;
+  --color-brand-purple: #7b3ff2;
+  --color-brand-purple-300: #d6b6f6;
+  --color-brand-purple-800: #391c57;
+  --color-brand-teal: #2a9d99;
+  --color-tint-gray: #f0eeec;
+  --color-on-dark-muted: #a4a097;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold text-balance;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Typography scale (DESIGN.md), responsive on the large sizes. */
+@utility text-hero {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+@utility text-display {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+@utility text-h2 {
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+@utility text-micro-caps {
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
